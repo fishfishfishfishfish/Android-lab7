@@ -1,5 +1,6 @@
 package com.chan.android_lab7;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                     SPEdit.putString("Password", NPW);
                     SPEdit.commit();
                     Toast.makeText(MainActivity.this, "Password accepted",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, FileEdit.class);
+                    startActivityForResult(intent, 1);
                 }
             }
         });// end OK_Btn Listener
@@ -85,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Password accepted",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, FileEdit.class);
+                    startActivity(intent);
                 }
             }
         });// end OK_Btn Listener
@@ -95,5 +100,10 @@ public class MainActivity extends AppCompatActivity {
                 Edit1.setText("");
             }
         });// end Clear_Btn Listener
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        finish();
     }
 }
