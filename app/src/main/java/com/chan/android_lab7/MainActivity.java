@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(MainActivity.this, "Password accepted",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, FileEdit.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,1);
                 }
             }
         });// end OK_Btn Listener
